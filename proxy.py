@@ -3,7 +3,7 @@ import threading
 import signal
 import sys
 
-BLACKLIST_DOMAINS = ["facebook.com", "yandex.ru", "baskino.me"]
+BLACKLIST_DOMAINS = ["kremlin.ru", "president.gov.by", "baskino.me"]
 
 # Function, that gets url and returns a host name of server
 # and a port, if there's one
@@ -158,7 +158,7 @@ class Server:
             # Parse url to get webserver and port
             (webserver, port) = parse_url(url)
 
-            request = alter_request(request.decode('utf-8')).encode('utf-8')
+            request = alter_request(request.decode('utf-8', 'ignore')).encode('utf-8')
         
             # Send recieved request to the server
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
